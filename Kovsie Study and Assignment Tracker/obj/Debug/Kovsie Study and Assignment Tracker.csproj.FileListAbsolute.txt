@@ -1,0 +1,21 @@
+C:\Users\moele\source\repos\ITSA Hackathon\Kovsie Study and Assignment Tracker\bin\Debug\Kovsie Study and Assignment Tracker.exe.config
+C:\Users\moele\source\repos\ITSA Hackathon\Kovsie Study and Assignment Tracker\bin\Debug\Kovsie Study and Assignment Tracker.exe
+C:\Users\moele\source\repos\ITSA Hackathon\Kovsie Study and Assignment Tracker\bin\Debug\Kovsie Study and Assignment Tracker.pdb
+C:\Users\moele\source\repos\ITSA Hackathon\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie Study and Assignment Tracker.csproj.AssemblyReference.cache
+C:\Users\moele\source\repos\ITSA Hackathon\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie_Study_and_Assignment_Tracker.Properties.Resources.resources
+C:\Users\moele\source\repos\ITSA Hackathon\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie_Study_and_Assignment_Tracker.frmStudyAndAssignement.resources
+C:\Users\moele\source\repos\ITSA Hackathon\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie Study and Assignment Tracker.csproj.GenerateResource.cache
+C:\Users\moele\source\repos\ITSA Hackathon\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie Study and Assignment Tracker.csproj.CoreCompileInputs.cache
+C:\Users\moele\source\repos\ITSA Hackathon\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie Study and Assignment Tracker.exe
+C:\Users\moele\source\repos\ITSA Hackathon\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie Study and Assignment Tracker.pdb
+C:\Users\2028419741\Downloads\Kovsie Study and Assignment Tracker\Kovsie Study and Assignment Tracker\bin\Debug\Kovsie Study and Assignment Tracker.exe.config
+C:\Users\2028419741\Downloads\Kovsie Study and Assignment Tracker\Kovsie Study and Assignment Tracker\bin\Debug\Kovsie Study and Assignment Tracker.exe
+C:\Users\2028419741\Downloads\Kovsie Study and Assignment Tracker\Kovsie Study and Assignment Tracker\bin\Debug\Kovsie Study and Assignment Tracker.pdb
+C:\Users\2028419741\Downloads\Kovsie Study and Assignment Tracker\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie Study and Assignment Tracker.csproj.AssemblyReference.cache
+C:\Users\2028419741\Downloads\Kovsie Study and Assignment Tracker\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie Study and Assignment Tracker.exe.config
+C:\Users\2028419741\Downloads\Kovsie Study and Assignment Tracker\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie_Study_and_Assignment_Tracker.Properties.Resources.resources
+C:\Users\2028419741\Downloads\Kovsie Study and Assignment Tracker\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie_Study_and_Assignment_Tracker.frmStudyAndAssignement.resources
+C:\Users\2028419741\Downloads\Kovsie Study and Assignment Tracker\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie Study and Assignment Tracker.csproj.GenerateResource.cache
+C:\Users\2028419741\Downloads\Kovsie Study and Assignment Tracker\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie Study and Assignment Tracker.csproj.CoreCompileInputs.cache
+C:\Users\2028419741\Downloads\Kovsie Study and Assignment Tracker\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie Study and Assignment Tracker.exe
+C:\Users\2028419741\Downloads\Kovsie Study and Assignment Tracker\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie Study and Assignment Tracker.pdb
