@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assignment.cs" />
     <Compile Include="Study And Assignment Tracker.cs">
       <SubType>Form</SubType>
     </Compile>

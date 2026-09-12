@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\2029379753\\Downloads\\Project\\Kovsie Study and Assignment Tracker\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3B89320E-943D-4568-BC55-88214EAA62FB}|Kovsie Study and Assignment Tracker.csproj|c:\\users\\2029379753\\downloads\\project\\kovsie study and assignment tracker\\study and assignment tracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3B89320E-943D-4568-BC55-88214EAA62FB}|Kovsie Study and Assignment Tracker.csproj|solutionrelative:study and assignment tracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B89320E-943D-4568-BC55-88214EAA62FB}|Kovsie Study and Assignment Tracker.csproj|c:\\users\\2029379753\\downloads\\project\\kovsie study and assignment tracker\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B89320E-943D-4568-BC55-88214EAA62FB}|Kovsie Study and Assignment Tracker.csproj|solutionrelative:assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Assignment.cs",
+              "DocumentMoniker": "C:\\Users\\2029379753\\Downloads\\Project\\Kovsie Study and Assignment Tracker\\Assignment.cs",
+              "RelativeDocumentMoniker": "Assignment.cs",
+              "ToolTip": "C:\\Users\\2029379753\\Downloads\\Project\\Kovsie Study and Assignment Tracker\\Assignment.cs",
+              "RelativeToolTip": "Assignment.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-12T12:50:52.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Study And Assignment Tracker.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\2029379753\\Downloads\\Project\\Kovsie Study and Assignment Tracker\\Study And Assignment Tracker.cs",
+              "RelativeDocumentMoniker": "Study And Assignment Tracker.cs",
+              "ToolTip": "C:\\Users\\2029379753\\Downloads\\Project\\Kovsie Study and Assignment Tracker\\Study And Assignment Tracker.cs [Design]",
+              "RelativeToolTip": "Study And Assignment Tracker.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-12T12:46:27.883Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
