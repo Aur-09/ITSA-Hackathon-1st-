@@ -1,38 +1,63 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Kovsie_Study_and_Assignment_Tracker
 {
-    internal class Assignment
+    [DataContract]
+    public class Assignment
     {
-        // Properties
+        [DataMember]
+        public string Module { get; set; }
+        [DataMember]
         public string Title { get; set; }
+        [DataMember]
         public string Description { get; set; }
+        [DataMember]
         public DateTime DueDate { get; set; }
+        [DataMember]
         public bool IsCompleted { get; set; }
-        // Constructor
-        public Assignment(string title, string description, DateTime dueDate)
+
+        public bool IsOverdue
         {
+            get
+            {
+                return !IsCompleted && DueDate.Date < DateTime.Today;
+            }
+        }
+
+        public Assignment()
+        {
+            Module = string.Empty;
+            Title = string.Empty;
+            Description = string.Empty;
+        }
+
+        public Assignment(string module, string title, string description, DateTime dueDate)
+        {
+            Module = module;
             Title = title;
             Description = description;
             DueDate = dueDate;
             IsCompleted = false;
         }
-        // Method to mark the assignment as completed
+
         public void MarkAsCompleted()
         {
             IsCompleted = true;
         }
-        // Method to display assignment details
+
         public void DisplayDetails()
         {
-            Console.WriteLine($"Title: {Title}");
-            Console.WriteLine($"Description: {Description}");
-            Console.WriteLine($"Due Date: {DueDate.ToShortDateString()}");
-            Console.WriteLine($"Completed: {IsCompleted}");
+            Console.WriteLine("Title: {0}", Title);
+            Console.WriteLine("Description: {0}", Description);
+            Console.WriteLine("Due Date: {0}", DueDate.ToShortDateString());
+            Console.WriteLine("Completed: {0}", IsCompleted);
+        }
+
+        public override string ToString()
+        {
+            string statusText = IsCompleted ? " - Completed" : (IsOverdue ? " - Overdue" : " - Upcoming");
+            return string.Format("{0} | {1} ({2:dd MMM yyyy}){3}", Module, Title, DueDate, statusText);
         }
     }
 }
