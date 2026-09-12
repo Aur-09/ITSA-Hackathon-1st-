@@ -61,14 +61,6 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.label2 = new System.Windows.Forms.Label();
             this.dtpDueDate_add = new System.Windows.Forms.DateTimePicker();
             this.tbcStudySchedule = new System.Windows.Forms.TabPage();
-            this.dgvWeeklyCalendar = new System.Windows.Forms.DataGridView();
-            this.clm_monday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clm_Tuesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clm_Wednesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clm_Thurday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clm_Friday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clm_Saturday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clm_Sunday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbcStudy_And_Assignment_Tracker.SuspendLayout();
             this.tbcAdd_Remove_Modules.SuspendLayout();
             this.grpViewModuleDetails.SuspendLayout();
@@ -78,8 +70,6 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.groupBox1.SuspendLayout();
             this.grpEditAssignement.SuspendLayout();
             this.grpAddAssignment.SuspendLayout();
-            this.tbcStudySchedule.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWeeklyCalendar)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcStudy_And_Assignment_Tracker
@@ -87,10 +77,11 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.tbcStudy_And_Assignment_Tracker.Controls.Add(this.tbcAdd_Remove_Modules);
             this.tbcStudy_And_Assignment_Tracker.Controls.Add(this.tbcAssignements);
             this.tbcStudy_And_Assignment_Tracker.Controls.Add(this.tbcStudySchedule);
-            this.tbcStudy_And_Assignment_Tracker.Location = new System.Drawing.Point(12, 12);
+            this.tbcStudy_And_Assignment_Tracker.Location = new System.Drawing.Point(8, 8);
+            this.tbcStudy_And_Assignment_Tracker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbcStudy_And_Assignment_Tracker.Name = "tbcStudy_And_Assignment_Tracker";
             this.tbcStudy_And_Assignment_Tracker.SelectedIndex = 0;
-            this.tbcStudy_And_Assignment_Tracker.Size = new System.Drawing.Size(1506, 1125);
+            this.tbcStudy_And_Assignment_Tracker.Size = new System.Drawing.Size(1004, 720);
             this.tbcStudy_And_Assignment_Tracker.TabIndex = 2;
             // 
             // tbcAdd_Remove_Modules
@@ -98,10 +89,11 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.tbcAdd_Remove_Modules.Controls.Add(this.grpViewModuleDetails);
             this.tbcAdd_Remove_Modules.Controls.Add(this.grpRemoveModule);
             this.tbcAdd_Remove_Modules.Controls.Add(this.grpAddModules);
-            this.tbcAdd_Remove_Modules.Location = new System.Drawing.Point(8, 39);
+            this.tbcAdd_Remove_Modules.Location = new System.Drawing.Point(4, 25);
+            this.tbcAdd_Remove_Modules.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbcAdd_Remove_Modules.Name = "tbcAdd_Remove_Modules";
-            this.tbcAdd_Remove_Modules.Padding = new System.Windows.Forms.Padding(3);
-            this.tbcAdd_Remove_Modules.Size = new System.Drawing.Size(1465, 1078);
+            this.tbcAdd_Remove_Modules.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbcAdd_Remove_Modules.Size = new System.Drawing.Size(996, 691);
             this.tbcAdd_Remove_Modules.TabIndex = 0;
             this.tbcAdd_Remove_Modules.Text = "Add Modules";
             this.tbcAdd_Remove_Modules.UseVisualStyleBackColor = true;
@@ -110,18 +102,21 @@ namespace Kovsie_Study_and_Assignment_Tracker
             // 
             this.grpViewModuleDetails.Controls.Add(this.btnViewDetails);
             this.grpViewModuleDetails.Controls.Add(this.lstModules_ViewDetails);
-            this.grpViewModuleDetails.Location = new System.Drawing.Point(27, 536);
+            this.grpViewModuleDetails.Location = new System.Drawing.Point(18, 343);
+            this.grpViewModuleDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grpViewModuleDetails.Name = "grpViewModuleDetails";
-            this.grpViewModuleDetails.Size = new System.Drawing.Size(790, 260);
+            this.grpViewModuleDetails.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpViewModuleDetails.Size = new System.Drawing.Size(527, 166);
             this.grpViewModuleDetails.TabIndex = 4;
             this.grpViewModuleDetails.TabStop = false;
             this.grpViewModuleDetails.Text = "View Module Details";
             // 
             // btnViewDetails
             // 
-            this.btnViewDetails.Location = new System.Drawing.Point(397, 39);
+            this.btnViewDetails.Location = new System.Drawing.Point(265, 25);
+            this.btnViewDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnViewDetails.Name = "btnViewDetails";
-            this.btnViewDetails.Size = new System.Drawing.Size(360, 79);
+            this.btnViewDetails.Size = new System.Drawing.Size(240, 51);
             this.btnViewDetails.TabIndex = 1;
             this.btnViewDetails.Text = "View Module";
             this.btnViewDetails.UseVisualStyleBackColor = true;
@@ -129,28 +124,32 @@ namespace Kovsie_Study_and_Assignment_Tracker
             // lstModules_ViewDetails
             // 
             this.lstModules_ViewDetails.FormattingEnabled = true;
-            this.lstModules_ViewDetails.ItemHeight = 25;
-            this.lstModules_ViewDetails.Location = new System.Drawing.Point(31, 39);
+            this.lstModules_ViewDetails.ItemHeight = 16;
+            this.lstModules_ViewDetails.Location = new System.Drawing.Point(21, 25);
+            this.lstModules_ViewDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lstModules_ViewDetails.Name = "lstModules_ViewDetails";
-            this.lstModules_ViewDetails.Size = new System.Drawing.Size(315, 179);
+            this.lstModules_ViewDetails.Size = new System.Drawing.Size(211, 116);
             this.lstModules_ViewDetails.TabIndex = 0;
             // 
             // grpRemoveModule
             // 
             this.grpRemoveModule.Controls.Add(this.btnRemoveModule);
             this.grpRemoveModule.Controls.Add(this.lstModules_remove);
-            this.grpRemoveModule.Location = new System.Drawing.Point(27, 225);
+            this.grpRemoveModule.Location = new System.Drawing.Point(18, 144);
+            this.grpRemoveModule.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grpRemoveModule.Name = "grpRemoveModule";
-            this.grpRemoveModule.Size = new System.Drawing.Size(790, 259);
+            this.grpRemoveModule.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpRemoveModule.Size = new System.Drawing.Size(527, 166);
             this.grpRemoveModule.TabIndex = 3;
             this.grpRemoveModule.TabStop = false;
             this.grpRemoveModule.Text = "Remove Module";
             // 
             // btnRemoveModule
             // 
-            this.btnRemoveModule.Location = new System.Drawing.Point(397, 41);
+            this.btnRemoveModule.Location = new System.Drawing.Point(265, 26);
+            this.btnRemoveModule.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRemoveModule.Name = "btnRemoveModule";
-            this.btnRemoveModule.Size = new System.Drawing.Size(360, 67);
+            this.btnRemoveModule.Size = new System.Drawing.Size(240, 43);
             this.btnRemoveModule.TabIndex = 1;
             this.btnRemoveModule.Text = "Remove Module";
             this.btnRemoveModule.UseVisualStyleBackColor = true;
@@ -158,10 +157,11 @@ namespace Kovsie_Study_and_Assignment_Tracker
             // lstModules_remove
             // 
             this.lstModules_remove.FormattingEnabled = true;
-            this.lstModules_remove.ItemHeight = 25;
-            this.lstModules_remove.Location = new System.Drawing.Point(31, 41);
+            this.lstModules_remove.ItemHeight = 16;
+            this.lstModules_remove.Location = new System.Drawing.Point(21, 26);
+            this.lstModules_remove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lstModules_remove.Name = "lstModules_remove";
-            this.lstModules_remove.Size = new System.Drawing.Size(332, 179);
+            this.lstModules_remove.Size = new System.Drawing.Size(223, 116);
             this.lstModules_remove.TabIndex = 0;
             // 
             // grpAddModules
@@ -169,9 +169,11 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.grpAddModules.Controls.Add(this.label1);
             this.grpAddModules.Controls.Add(this.btnAddModule);
             this.grpAddModules.Controls.Add(this.txtModules);
-            this.grpAddModules.Location = new System.Drawing.Point(27, 26);
+            this.grpAddModules.Location = new System.Drawing.Point(18, 17);
+            this.grpAddModules.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grpAddModules.Name = "grpAddModules";
-            this.grpAddModules.Size = new System.Drawing.Size(790, 159);
+            this.grpAddModules.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpAddModules.Size = new System.Drawing.Size(527, 102);
             this.grpAddModules.TabIndex = 2;
             this.grpAddModules.TabStop = false;
             this.grpAddModules.Text = "Add Modules";
@@ -179,26 +181,29 @@ namespace Kovsie_Study_and_Assignment_Tracker
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 44);
+            this.label1.Location = new System.Drawing.Point(17, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(497, 25);
+            this.label1.Size = new System.Drawing.Size(302, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Enter your module code in the form of (ABCD1234)";
             // 
             // btnAddModule
             // 
-            this.btnAddModule.Location = new System.Drawing.Point(397, 86);
+            this.btnAddModule.Location = new System.Drawing.Point(265, 55);
+            this.btnAddModule.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddModule.Name = "btnAddModule";
-            this.btnAddModule.Size = new System.Drawing.Size(360, 48);
+            this.btnAddModule.Size = new System.Drawing.Size(240, 31);
             this.btnAddModule.TabIndex = 1;
             this.btnAddModule.Text = "Add Module";
             this.btnAddModule.UseVisualStyleBackColor = true;
             // 
             // txtModules
             // 
-            this.txtModules.Location = new System.Drawing.Point(31, 86);
+            this.txtModules.Location = new System.Drawing.Point(21, 55);
+            this.txtModules.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtModules.Name = "txtModules";
-            this.txtModules.Size = new System.Drawing.Size(332, 31);
+            this.txtModules.Size = new System.Drawing.Size(223, 22);
             this.txtModules.TabIndex = 0;
             // 
             // tbcAssignements
@@ -207,19 +212,21 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.tbcAssignements.Controls.Add(this.groupBox1);
             this.tbcAssignements.Controls.Add(this.grpEditAssignement);
             this.tbcAssignements.Controls.Add(this.grpAddAssignment);
-            this.tbcAssignements.Location = new System.Drawing.Point(8, 39);
+            this.tbcAssignements.Location = new System.Drawing.Point(4, 25);
+            this.tbcAssignements.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbcAssignements.Name = "tbcAssignements";
-            this.tbcAssignements.Padding = new System.Windows.Forms.Padding(3);
-            this.tbcAssignements.Size = new System.Drawing.Size(1465, 1078);
+            this.tbcAssignements.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbcAssignements.Size = new System.Drawing.Size(996, 691);
             this.tbcAssignements.TabIndex = 1;
             this.tbcAssignements.Text = "Assignments";
             this.tbcAssignements.UseVisualStyleBackColor = true;
             // 
             // btnGuide
             // 
-            this.btnGuide.Location = new System.Drawing.Point(1076, 35);
+            this.btnGuide.Location = new System.Drawing.Point(717, 22);
+            this.btnGuide.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnGuide.Name = "btnGuide";
-            this.btnGuide.Size = new System.Drawing.Size(312, 995);
+            this.btnGuide.Size = new System.Drawing.Size(208, 637);
             this.btnGuide.TabIndex = 4;
             this.btnGuide.Text = "View Assignments Guide";
             this.btnGuide.UseVisualStyleBackColor = true;
@@ -231,36 +238,41 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.groupBox1.Controls.Add(this.btnAssignments);
             this.groupBox1.Controls.Add(this.btnCompletedAssignment);
             this.groupBox1.Controls.Add(this.lstCurrentAssignments);
-            this.groupBox1.Location = new System.Drawing.Point(17, 271);
+            this.groupBox1.Location = new System.Drawing.Point(11, 173);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1013, 527);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(675, 337);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Current Assignments";
             // 
             // btnEditAssignment
             // 
-            this.btnEditAssignment.Location = new System.Drawing.Point(28, 295);
+            this.btnEditAssignment.Location = new System.Drawing.Point(19, 189);
+            this.btnEditAssignment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEditAssignment.Name = "btnEditAssignment";
-            this.btnEditAssignment.Size = new System.Drawing.Size(265, 70);
+            this.btnEditAssignment.Size = new System.Drawing.Size(177, 45);
             this.btnEditAssignment.TabIndex = 3;
             this.btnEditAssignment.Text = "Edit Assignment";
             this.btnEditAssignment.UseVisualStyleBackColor = true;
             // 
             // btnAssignments
             // 
-            this.btnAssignments.Location = new System.Drawing.Point(28, 161);
+            this.btnAssignments.Location = new System.Drawing.Point(19, 103);
+            this.btnAssignments.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAssignments.Name = "btnAssignments";
-            this.btnAssignments.Size = new System.Drawing.Size(265, 65);
+            this.btnAssignments.Size = new System.Drawing.Size(177, 42);
             this.btnAssignments.TabIndex = 2;
             this.btnAssignments.Text = "View Overdue Assignements";
             this.btnAssignments.UseVisualStyleBackColor = true;
             // 
             // btnCompletedAssignment
             // 
-            this.btnCompletedAssignment.Location = new System.Drawing.Point(28, 42);
+            this.btnCompletedAssignment.Location = new System.Drawing.Point(19, 27);
+            this.btnCompletedAssignment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCompletedAssignment.Name = "btnCompletedAssignment";
-            this.btnCompletedAssignment.Size = new System.Drawing.Size(265, 66);
+            this.btnCompletedAssignment.Size = new System.Drawing.Size(177, 42);
             this.btnCompletedAssignment.TabIndex = 1;
             this.btnCompletedAssignment.Text = "Assignment Completed";
             this.btnCompletedAssignment.UseVisualStyleBackColor = true;
@@ -268,10 +280,11 @@ namespace Kovsie_Study_and_Assignment_Tracker
             // lstCurrentAssignments
             // 
             this.lstCurrentAssignments.FormattingEnabled = true;
-            this.lstCurrentAssignments.ItemHeight = 25;
-            this.lstCurrentAssignments.Location = new System.Drawing.Point(396, 30);
+            this.lstCurrentAssignments.ItemHeight = 16;
+            this.lstCurrentAssignments.Location = new System.Drawing.Point(264, 19);
+            this.lstCurrentAssignments.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lstCurrentAssignments.Name = "lstCurrentAssignments";
-            this.lstCurrentAssignments.Size = new System.Drawing.Size(596, 479);
+            this.lstCurrentAssignments.Size = new System.Drawing.Size(399, 308);
             this.lstCurrentAssignments.TabIndex = 0;
             // 
             // grpEditAssignement
@@ -281,51 +294,58 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.grpEditAssignement.Controls.Add(this.btnAssignment_edit);
             this.grpEditAssignement.Controls.Add(this.dateTimePicker1);
             this.grpEditAssignement.Controls.Add(this.label4);
-            this.grpEditAssignement.Location = new System.Drawing.Point(17, 804);
+            this.grpEditAssignement.Location = new System.Drawing.Point(11, 515);
+            this.grpEditAssignement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grpEditAssignement.Name = "grpEditAssignement";
-            this.grpEditAssignement.Size = new System.Drawing.Size(1013, 235);
+            this.grpEditAssignement.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpEditAssignement.Size = new System.Drawing.Size(675, 150);
             this.grpEditAssignement.TabIndex = 1;
             this.grpEditAssignement.TabStop = false;
             this.grpEditAssignement.Text = "Edit Assignment";
             // 
             // txtAssignment_edit
             // 
-            this.txtAssignment_edit.Location = new System.Drawing.Point(560, 98);
+            this.txtAssignment_edit.Location = new System.Drawing.Point(373, 63);
+            this.txtAssignment_edit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAssignment_edit.Name = "txtAssignment_edit";
-            this.txtAssignment_edit.Size = new System.Drawing.Size(441, 31);
+            this.txtAssignment_edit.Size = new System.Drawing.Size(295, 22);
             this.txtAssignment_edit.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(555, 52);
+            this.label5.Location = new System.Drawing.Point(370, 33);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(186, 25);
+            this.label5.Size = new System.Drawing.Size(117, 16);
             this.label5.TabIndex = 6;
             this.label5.Text = "Assignment Name";
             // 
             // btnAssignment_edit
             // 
-            this.btnAssignment_edit.Location = new System.Drawing.Point(28, 151);
+            this.btnAssignment_edit.Location = new System.Drawing.Point(19, 97);
+            this.btnAssignment_edit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAssignment_edit.Name = "btnAssignment_edit";
-            this.btnAssignment_edit.Size = new System.Drawing.Size(384, 47);
+            this.btnAssignment_edit.Size = new System.Drawing.Size(256, 30);
             this.btnAssignment_edit.TabIndex = 5;
             this.btnAssignment_edit.Text = "Edit Assignment";
             this.btnAssignment_edit.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(28, 96);
+            this.dateTimePicker1.Location = new System.Drawing.Point(19, 61);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(384, 31);
+            this.dateTimePicker1.Size = new System.Drawing.Size(257, 22);
             this.dateTimePicker1.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 52);
+            this.label4.Location = new System.Drawing.Point(21, 33);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(214, 25);
+            this.label4.Size = new System.Drawing.Size(133, 16);
             this.label4.TabIndex = 2;
             this.label4.Text = "Assignment due date";
             // 
@@ -336,18 +356,21 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.grpAddAssignment.Controls.Add(this.txtAssignmentName_Add);
             this.grpAddAssignment.Controls.Add(this.label2);
             this.grpAddAssignment.Controls.Add(this.dtpDueDate_add);
-            this.grpAddAssignment.Location = new System.Drawing.Point(17, 18);
+            this.grpAddAssignment.Location = new System.Drawing.Point(11, 12);
+            this.grpAddAssignment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grpAddAssignment.Name = "grpAddAssignment";
-            this.grpAddAssignment.Size = new System.Drawing.Size(1013, 237);
+            this.grpAddAssignment.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpAddAssignment.Size = new System.Drawing.Size(675, 152);
             this.grpAddAssignment.TabIndex = 0;
             this.grpAddAssignment.TabStop = false;
             this.grpAddAssignment.Text = "Add Assignment";
             // 
             // btnAssignment_add
             // 
-            this.btnAssignment_add.Location = new System.Drawing.Point(28, 160);
+            this.btnAssignment_add.Location = new System.Drawing.Point(19, 102);
+            this.btnAssignment_add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAssignment_add.Name = "btnAssignment_add";
-            this.btnAssignment_add.Size = new System.Drawing.Size(384, 47);
+            this.btnAssignment_add.Size = new System.Drawing.Size(256, 30);
             this.btnAssignment_add.TabIndex = 4;
             this.btnAssignment_add.Text = "Add Assignment";
             this.btnAssignment_add.UseVisualStyleBackColor = true;
@@ -355,120 +378,58 @@ namespace Kovsie_Study_and_Assignment_Tracker
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(555, 48);
+            this.label3.Location = new System.Drawing.Point(370, 31);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(186, 25);
+            this.label3.Size = new System.Drawing.Size(117, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Assignment Name";
             // 
             // txtAssignmentName_Add
             // 
-            this.txtAssignmentName_Add.Location = new System.Drawing.Point(560, 86);
+            this.txtAssignmentName_Add.Location = new System.Drawing.Point(373, 55);
+            this.txtAssignmentName_Add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAssignmentName_Add.Name = "txtAssignmentName_Add";
-            this.txtAssignmentName_Add.Size = new System.Drawing.Size(441, 31);
+            this.txtAssignmentName_Add.Size = new System.Drawing.Size(295, 22);
             this.txtAssignmentName_Add.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 48);
+            this.label2.Location = new System.Drawing.Point(15, 31);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(214, 25);
+            this.label2.Size = new System.Drawing.Size(133, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Assignment due date";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // dtpDueDate_add
             // 
-            this.dtpDueDate_add.Location = new System.Drawing.Point(28, 86);
+            this.dtpDueDate_add.Location = new System.Drawing.Point(19, 55);
+            this.dtpDueDate_add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpDueDate_add.Name = "dtpDueDate_add";
-            this.dtpDueDate_add.Size = new System.Drawing.Size(384, 31);
+            this.dtpDueDate_add.Size = new System.Drawing.Size(257, 22);
             this.dtpDueDate_add.TabIndex = 0;
             // 
             // tbcStudySchedule
             // 
-            this.tbcStudySchedule.Controls.Add(this.dgvWeeklyCalendar);
-            this.tbcStudySchedule.Location = new System.Drawing.Point(8, 39);
+            this.tbcStudySchedule.Location = new System.Drawing.Point(4, 25);
+            this.tbcStudySchedule.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbcStudySchedule.Name = "tbcStudySchedule";
-            this.tbcStudySchedule.Padding = new System.Windows.Forms.Padding(3);
-            this.tbcStudySchedule.Size = new System.Drawing.Size(1490, 1078);
+            this.tbcStudySchedule.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbcStudySchedule.Size = new System.Drawing.Size(996, 691);
             this.tbcStudySchedule.TabIndex = 2;
             this.tbcStudySchedule.Text = "Study schedule";
             this.tbcStudySchedule.UseVisualStyleBackColor = true;
             // 
-            // dgvWeeklyCalendar
-            // 
-            this.dgvWeeklyCalendar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWeeklyCalendar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clm_monday,
-            this.clm_Tuesday,
-            this.clm_Wednesday,
-            this.clm_Thurday,
-            this.clm_Friday,
-            this.clm_Saturday,
-            this.clm_Sunday});
-            this.dgvWeeklyCalendar.Location = new System.Drawing.Point(6, 6);
-            this.dgvWeeklyCalendar.Name = "dgvWeeklyCalendar";
-            this.dgvWeeklyCalendar.RowHeadersWidth = 82;
-            this.dgvWeeklyCalendar.RowTemplate.Height = 33;
-            this.dgvWeeklyCalendar.Size = new System.Drawing.Size(1478, 514);
-            this.dgvWeeklyCalendar.TabIndex = 0;
-            // 
-            // clm_monday
-            // 
-            this.clm_monday.HeaderText = "Monday";
-            this.clm_monday.MinimumWidth = 10;
-            this.clm_monday.Name = "clm_monday";
-            this.clm_monday.Width = 200;
-            // 
-            // clm_Tuesday
-            // 
-            this.clm_Tuesday.HeaderText = "Tuesday";
-            this.clm_Tuesday.MinimumWidth = 10;
-            this.clm_Tuesday.Name = "clm_Tuesday";
-            this.clm_Tuesday.Width = 200;
-            // 
-            // clm_Wednesday
-            // 
-            this.clm_Wednesday.HeaderText = "Wednesday";
-            this.clm_Wednesday.MinimumWidth = 10;
-            this.clm_Wednesday.Name = "clm_Wednesday";
-            this.clm_Wednesday.Width = 200;
-            // 
-            // clm_Thurday
-            // 
-            this.clm_Thurday.HeaderText = "Thursday";
-            this.clm_Thurday.MinimumWidth = 10;
-            this.clm_Thurday.Name = "clm_Thurday";
-            this.clm_Thurday.Width = 200;
-            // 
-            // clm_Friday
-            // 
-            this.clm_Friday.HeaderText = "Friday";
-            this.clm_Friday.MinimumWidth = 10;
-            this.clm_Friday.Name = "clm_Friday";
-            this.clm_Friday.Width = 200;
-            // 
-            // clm_Saturday
-            // 
-            this.clm_Saturday.HeaderText = "Saturday";
-            this.clm_Saturday.MinimumWidth = 10;
-            this.clm_Saturday.Name = "clm_Saturday";
-            this.clm_Saturday.Width = 200;
-            // 
-            // clm_Sunday
-            // 
-            this.clm_Sunday.HeaderText = "Sunday";
-            this.clm_Sunday.MinimumWidth = 10;
-            this.clm_Sunday.Name = "clm_Sunday";
-            this.clm_Sunday.Width = 200;
-            // 
             // frmStudyAndAssignement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1530, 1173);
+            this.ClientSize = new System.Drawing.Size(1020, 675);
             this.Controls.Add(this.tbcStudy_And_Assignment_Tracker);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmStudyAndAssignement";
             this.Text = "Study And Assignment Tracker";
             this.tbcStudy_And_Assignment_Tracker.ResumeLayout(false);
@@ -483,8 +444,6 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.grpEditAssignement.PerformLayout();
             this.grpAddAssignment.ResumeLayout(false);
             this.grpAddAssignment.PerformLayout();
-            this.tbcStudySchedule.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWeeklyCalendar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -523,14 +482,6 @@ namespace Kovsie_Study_and_Assignment_Tracker
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAssignment_edit;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DataGridView dgvWeeklyCalendar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clm_monday;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clm_Tuesday;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clm_Wednesday;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clm_Thurday;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clm_Friday;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clm_Saturday;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clm_Sunday;
     }
 }
 
