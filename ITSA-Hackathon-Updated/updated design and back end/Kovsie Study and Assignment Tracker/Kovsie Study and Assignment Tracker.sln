@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.37530.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kovsie Study and Assignment Tracker", "Kovsie Study and Assignment Tracker.csproj", "{3B89320E-943D-4568-BC55-88214EAA62FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B89320E-943D-4568-BC55-88214EAA62FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B89320E-943D-4568-BC55-88214EAA62FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B89320E-943D-4568-BC55-88214EAA62FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B89320E-943D-4568-BC55-88214EAA62FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFAF2CBC-44A1-4BF9-B612-2D438C9879BB}
+	EndGlobalSection
+EndGlobal
