@@ -3,7 +3,11 @@
 ## Team
 
 - **Team name:** Team 11
-- **Team member:** Noluthando Buda
+- **Team members:**
+  - Relebuhile Mokanyane
+  - Moeletsi Phakedi
+  - Oluga Mutavhatsindi
+  - Noluthando Buda
 
 ## Project description
 
