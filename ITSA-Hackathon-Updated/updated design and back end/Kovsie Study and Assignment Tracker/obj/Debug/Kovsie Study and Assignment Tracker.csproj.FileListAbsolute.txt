@@ -1,0 +1,11 @@
+C:\Users\Noluthando\OneDrive\ITSA\ITSA-Hackathon-Updated\updated design and back end\Kovsie Study and Assignment Tracker\bin\Debug\Kovsie Study and Assignment Tracker.exe.config
+C:\Users\Noluthando\OneDrive\ITSA\ITSA-Hackathon-Updated\updated design and back end\Kovsie Study and Assignment Tracker\bin\Debug\Kovsie Study and Assignment Tracker.exe
+C:\Users\Noluthando\OneDrive\ITSA\ITSA-Hackathon-Updated\updated design and back end\Kovsie Study and Assignment Tracker\bin\Debug\Kovsie Study and Assignment Tracker.pdb
+C:\Users\Noluthando\OneDrive\ITSA\ITSA-Hackathon-Updated\updated design and back end\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie Study and Assignment Tracker.csproj.AssemblyReference.cache
+C:\Users\Noluthando\OneDrive\ITSA\ITSA-Hackathon-Updated\updated design and back end\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie_Study_and_Assignment_Tracker.Properties.Resources.resources
+C:\Users\Noluthando\OneDrive\ITSA\ITSA-Hackathon-Updated\updated design and back end\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie_Study_and_Assignment_Tracker.frmStudyAndAssignement.resources
+C:\Users\Noluthando\OneDrive\ITSA\ITSA-Hackathon-Updated\updated design and back end\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie Study and Assignment Tracker.csproj.GenerateResource.cache
+C:\Users\Noluthando\OneDrive\ITSA\ITSA-Hackathon-Updated\updated design and back end\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie Study and Assignment Tracker.csproj.CoreCompileInputs.cache
+C:\Users\Noluthando\OneDrive\ITSA\ITSA-Hackathon-Updated\updated design and back end\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie Study and Assignment Tracker.exe
+C:\Users\Noluthando\OneDrive\ITSA\ITSA-Hackathon-Updated\updated design and back end\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie Study and Assignment Tracker.pdb
+C:\Users\Noluthando\OneDrive\ITSA\ITSA-Hackathon-Updated\updated design and back end\Kovsie Study and Assignment Tracker\obj\Debug\Kovsie Study and Assignment Tracker.exe.config
