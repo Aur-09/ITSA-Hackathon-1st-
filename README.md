@@ -9,6 +9,12 @@
   - Oluga Mutavhatsindi
   - Noluthando Buda
 
+### Contribution highlights
+
+- **Moeletsi Phakedi** — created the initial skeletal design.
+- **Noluthando Buda** — implemented the assignment filters and additional
+  application functionality.
+
 ## Project description
 
 Kovsie Study and Assignment Tracker is a Windows Forms desktop application that helps
