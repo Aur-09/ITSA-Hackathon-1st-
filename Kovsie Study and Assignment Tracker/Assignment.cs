@@ -3,10 +3,8 @@ using System.Runtime.Serialization;
 
 namespace Kovsie_Study_and_Assignment_Tracker
 {
-    /// <summary>
-    /// Represents a single assignment belonging to a module.
-    /// This is the custom class used instead of parallel arrays / loose variables.
-    /// </summary>
+    // Represents a single assignment belonging to a module.
+    // This is the custom class used instead of parallel arrays / loose variables.
     [DataContract]
     public class Assignment
     {
@@ -22,25 +20,20 @@ namespace Kovsie_Study_and_Assignment_Tracker
         [DataMember]
         public bool IsCompleted { get; set; }
 
-        /// <summary>
-        /// True when the assignment has not been completed and its due date has passed.
-        /// </summary>
+        // True when the assignment has not been completed and its due date has passed.
+      
         public bool IsOverdue
         {
             get { return !IsCompleted && DueDate.Date < DateTime.Today; }
         }
-
-        /// <summary>
-        /// Whole days between today and the due date. Negative once the assignment is overdue.
-        /// </summary>
+       
+        // Whole days between today and the due date. Negative once the assignment is overdue.
+        
         public int DaysRemaining
         {
             get { return (DueDate.Date - DateTime.Today).Days; }
         }
 
-        /// <summary>
-        /// A friendly, formatted description of where this assignment stands.
-        /// </summary>
         public string StatusText
         {
             get
@@ -83,10 +76,6 @@ namespace Kovsie_Study_and_Assignment_Tracker
             IsCompleted = true;
         }
 
-        /// <summary>
-        /// Builds a multi-line, human-readable summary of this assignment,
-        /// used by the "View Details" feature instead of writing to the console.
-        /// </summary>
         public string GetDetailsText()
         {
             return string.Format(

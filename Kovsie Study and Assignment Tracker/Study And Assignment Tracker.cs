@@ -6,6 +6,7 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Kovsie_Study_and_Assignment_Tracker
 {
@@ -34,45 +35,25 @@ namespace Kovsie_Study_and_Assignment_Tracker
         private bool sortAscending = true;
         private bool showingOverdueOnly = false;
 
-        private ComboBox cmbAssignmentModule;
-        private TextBox txtSearch;
-        private TextBox txtModuleSummary;
-        private Label lblTotalAssignments;
-        private Label lblOverdueAssignments;
-        private Label lblModulesTracked;
-        private Button btnDeleteAssignment;
-        private Button btnSortAssignments;
-        private Button btnViewAssignmentDetails;
-        private Button btnSaveAndExit;
-
-        private static readonly System.Drawing.Color[] TabAccentColors = new[]
-        {
-            System.Drawing.Color.FromArgb(48, 112, 190),
-            System.Drawing.Color.FromArgb(196, 90, 60),
-            System.Drawing.Color.FromArgb(60, 160, 120)
-        };
-
-        // pnlHeroHeader, pnlCountdownHero, its 3 labels, countdownTimer, lstStudyPlan and
-        // btnRefreshStudyPlan are all declared and created in the Designer file now (see
-        // Study And Assignment Tracker.Designer.cs) - only the data behind them lives here.
+        // Every control (position, size, colour, anchor) is declared and configured in
+        // Study And Assignment Tracker.Designer.cs now, exactly as Visual Studio's own
+        // designer would generate it - what you see there is what runs. This file only
+        // holds behaviour: data, validation, and the handful of custom paint routines
+        // that inherently can't be a static design-time property (gradients, list rows).
         private readonly List<Assignment> studyPlanOrder = new List<Assignment>();
 
         public frmStudyAndAssignement()
         {
             InitializeComponent();
-            BuildTrackerControls();
             WireEvents();
             LoadData();
             RefreshModuleList();
             RefreshAssignmentList();
             countdownTimer.Start();
         }
-
-        /// <summary>
-        /// Paints the gradient fill for pnlHeroHeader. The panel itself, its position and
-        /// its title label are all declared in the Designer file - this is the one piece
-        /// (a gradient) that has no Designer property, so it has to stay code.
-        /// </summary>
+        // THis event handler Paints the gradient fill for pnlHeroHeader. The panel itself, its position and
+        // its title label are all declared in the Designer file - this is the one piece
+        // (a gradient) that has no Designer property, so it has to stay code.
         private void pnlHeroHeader_Paint(object sender, PaintEventArgs e)
         {
             using (System.Drawing.Drawing2D.LinearGradientBrush brush =
@@ -86,164 +67,15 @@ namespace Kovsie_Study_and_Assignment_Tracker
             }
         }
 
-        /// <summary>
-        /// Paints one tab header with its accent colour. The TabControl's DrawMode,
-        /// ItemSize and the wiring of this event are all set in the Designer file now -
-        /// this method only has to exist because DrawItem's actual pixels always need code.
-        /// </summary>
-        private void tbcStudy_And_Assignment_Tracker_DrawItem(object sender, DrawItemEventArgs e)
+        private void WireEvents()
         {
-            TabPage page = tbcStudy_And_Assignment_Tracker.TabPages[e.Index];
-            bool selected = e.Index == tbcStudy_And_Assignment_Tracker.SelectedIndex;
-            System.Drawing.Color accent = TabAccentColors[e.Index % TabAccentColors.Length];
-            System.Drawing.Color backColor = selected
-                ? accent
-                : System.Drawing.Color.FromArgb(232, 238, 247);
-            System.Drawing.Color textColor = selected ? System.Drawing.Color.White : accent;
-
-            using (System.Drawing.SolidBrush backBrush = new System.Drawing.SolidBrush(backColor))
-            {
-                e.Graphics.FillRectangle(backBrush, e.Bounds);
-            }
-
-            System.Drawing.StringFormat centerFormat = new System.Drawing.StringFormat
-            {
-                Alignment = System.Drawing.StringAlignment.Center,
-                LineAlignment = System.Drawing.StringAlignment.Center
-            };
-            using (System.Drawing.SolidBrush textBrush = new System.Drawing.SolidBrush(textColor))
-            {
-                e.Graphics.DrawString(page.Text, e.Font, textBrush, e.Bounds, centerFormat);
-            }
+            btnAddModule.Click += btnAddModule_Click;
+            btnRemoveModule.Click += btnRemoveModule_Click;
+            btnViewDetails.Click += btnViewDetails_Click;
+            FormClosing += frmStudyAndAssignement_FormClosing;
         }
 
-        private void BuildTrackerControls()
-        {
-            tbcAssignements.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
-            tbcAssignements.AutoScroll = true;
-            tbcAdd_Remove_Modules.AutoScroll = true;
-            grpAddAssignment.BackColor = System.Drawing.Color.White;
-            groupBox1.BackColor = System.Drawing.Color.White;
-            grpEditAssignement.BackColor = System.Drawing.Color.White;
-            grpAddAssignment.Text = "Add / Edit Assignment";
-            groupBox1.Text = "Assignments";
-            // grpEditAssignement's caption and the two edit-button captions are now set
-            // in the Designer file (Load for Editing / Save Changes) - see the note there
-            // about why they used to both say "Edit Assignment".
-
-            foreach (Control control in new Control[]
-            {
-                btnAssignment_add, btnCompletedAssignment, btnAssignments,
-                btnEditAssignment, btnAssignment_edit, btnGuide,
-                btnAddModule, btnRemoveModule, btnViewDetails
-            })
-            {
-                Button button = control as Button;
-                if (button != null)
-                {
-                    button.BackColor = System.Drawing.Color.FromArgb(232, 238, 247);
-                    button.FlatStyle = FlatStyle.Flat;
-                    button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(180, 195, 215);
-                }
-            }
-
-            btnAssignment_add.BackColor = System.Drawing.Color.FromArgb(48, 112, 190);
-            btnAssignment_add.ForeColor = System.Drawing.Color.White;
-
-            // Reposition and enlarge the main panels so every control has room to be seen and clicked.
-            grpAddAssignment.Location = new System.Drawing.Point(17, 12);
-            grpAddAssignment.Size = new System.Drawing.Size(1013, 152);
-            groupBox1.Location = new System.Drawing.Point(17, 223);
-            groupBox1.Size = new System.Drawing.Size(1013, 527);
-            grpEditAssignement.Location = new System.Drawing.Point(17, 766);
-            grpEditAssignement.Size = new System.Drawing.Size(1013, 235);
-
-            // Module selector, shared between the Add and Edit sections.
-            Label moduleLabel = new Label
-            {
-                AutoSize = true,
-                Location = new System.Drawing.Point(700, 31),
-                Text = "Module"
-            };
-            cmbAssignmentModule = new ComboBox
-            {
-                DropDownStyle = ComboBoxStyle.DropDownList,
-                Location = new System.Drawing.Point(700, 55),
-                Size = new System.Drawing.Size(260, 31)
-            };
-            grpAddAssignment.Controls.Add(moduleLabel);
-            grpAddAssignment.Controls.Add(cmbAssignmentModule);
-
-            // Search / sort / delete / details toolbar, above the assignment list.
-            txtSearch = new TextBox
-            {
-                Location = new System.Drawing.Point(17, 176),
-                Size = new System.Drawing.Size(360, 31),
-                Text = SearchPlaceholder,
-                ForeColor = System.Drawing.Color.Gray
-            };
-            txtSearch.Enter += txtSearch_Enter;
-            txtSearch.Leave += txtSearch_Leave;
-            tbcAssignements.Controls.Add(txtSearch);
-
-            btnSortAssignments = CreateActionButton(GetSortButtonText(), 390, 176, 200);
-            btnDeleteAssignment = CreateActionButton("Delete", 604, 176, 130);
-            btnDeleteAssignment.ForeColor = System.Drawing.Color.Maroon;
-            btnViewAssignmentDetails = CreateActionButton("View Details", 748, 176, 160);
-            tbcAssignements.Controls.Add(btnSortAssignments);
-            tbcAssignements.Controls.Add(btnDeleteAssignment);
-            tbcAssignements.Controls.Add(btnViewAssignmentDetails);
-
-            btnSaveAndExit = CreateActionButton("Save and exit", 17, 1017, 200);
-            tbcAssignements.Controls.Add(btnSaveAndExit);
-
-            // Right-hand summary column.
-            btnGuide.Location = new System.Drawing.Point(1050, 12);
-            btnGuide.Size = new System.Drawing.Size(330, 199);
-            btnGuide.Text = "Help / Guide";
-
-            lblTotalAssignments = CreateSummaryLabel("Total assignments: 0", 1050, 223);
-            lblOverdueAssignments = CreateSummaryLabel("Overdue: 0", 1050, 250);
-            lblModulesTracked = CreateSummaryLabel("Modules tracked: 0", 1050, 277);
-            tbcAssignements.Controls.Add(lblTotalAssignments);
-            tbcAssignements.Controls.Add(lblOverdueAssignments);
-            tbcAssignements.Controls.Add(lblModulesTracked);
-
-            txtModuleSummary = new TextBox
-            {
-                Location = new System.Drawing.Point(1050, 310),
-                Size = new System.Drawing.Size(330, 440),
-                Multiline = true,
-                ReadOnly = true,
-                ScrollBars = ScrollBars.Vertical,
-                BackColor = System.Drawing.Color.White
-            };
-            tbcAssignements.Controls.Add(txtModuleSummary);
-
-            // Owner-draw the assignment list so overdue / completed items are flagged with colour,
-            // not just a word in the text.
-            lstCurrentAssignments.DrawMode = DrawMode.OwnerDrawFixed;
-            lstCurrentAssignments.ItemHeight = 22;
-
-            // Anchoring so the window can actually be resized without the layout breaking -
-            // the assignment list and its group box grow with the window; the side summary
-            // column and the module tab track the right/left edges.
-            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lstCurrentAssignments.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            grpAddAssignment.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            grpEditAssignement.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnGuide.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblTotalAssignments.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblOverdueAssignments.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblModulesTracked.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtModuleSummary.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            btnSaveAndExit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-        }
-
-        /// <summary>
-        /// Wired to countdownTimer.Tick in the Designer file - ticks every second and
-        /// just forwards to the same refresh logic used after any data change.
-        /// </summary>
+        //Wired to countdownTimer.Tick in the Designer file - ticks every second and just forwards to the same refresh logic used after any data change.
         private void countdownTimer_Tick(object sender, EventArgs e)
         {
             UpdateCountdown();
@@ -278,13 +110,11 @@ namespace Kovsie_Study_and_Assignment_Tracker
             }
         }
 
-        /// <summary>
-        /// Refreshes the countdown card. Called once a second by countdownTimer, and
-        /// also straight after any add/edit/delete/complete so it never shows stale data.
-        /// "End of the due day" (23:59:59) is used as the deadline instant, matching
-        /// Assignment.IsOverdue - which only flags a day as overdue once it has fully
-        /// passed, not the moment it starts.
-        /// </summary>
+        // Refreshes the countdown card. Called once a second by countdownTimer, and
+        // also straight after any add/edit/delete/complete so it never shows stale data.
+        // "End of the due day" (23:59:59) is used as the deadline instant, matching
+        // Assignment.IsOverdue - which only flags a day as overdue once it has fully
+        // passed, not the moment it starts.
         private void UpdateCountdown()
         {
             Assignment next = studyPlanOrder.FirstOrDefault();
@@ -321,11 +151,9 @@ namespace Kovsie_Study_and_Assignment_Tracker
             pnlCountdownHero.Invalidate();
         }
 
-        /// <summary>
-        /// Rebuilds the priority queue: everything not yet completed, oldest due date
-        /// first (so overdue work - which has the earliest due dates - naturally sits
-        /// at the top). Also repaints the heatmap, since both reflect the same data.
-        /// </summary>
+        // Rebuilds the priority queue: everything not yet completed, oldest due date
+        // first (so overdue work - which has the earliest due dates - naturally sits
+        // at the top). Also repaints the heatmap, since both reflect the same data.
         private void RefreshStudyPlan()
         {
             studyPlanOrder.Clear();
@@ -402,46 +230,6 @@ namespace Kovsie_Study_and_Assignment_Tracker
                 return System.Drawing.Color.FromArgb(230, 190, 40);
             }
             return System.Drawing.Color.FromArgb(60, 170, 120);
-        }
-
-        private Button CreateActionButton(string text, int x, int y, int width)
-        {
-            return new Button
-            {
-                Location = new System.Drawing.Point(x, y),
-                Size = new System.Drawing.Size(width, 35),
-                Text = text,
-                UseVisualStyleBackColor = true
-            };
-        }
-
-        private Label CreateSummaryLabel(string text, int x, int y)
-        {
-            return new Label
-            {
-                AutoSize = true,
-                Location = new System.Drawing.Point(x, y),
-                Text = text
-            };
-        }
-
-        private void WireEvents()
-        {
-            btnAddModule.Click += btnAddModule_Click;
-            btnRemoveModule.Click += btnRemoveModule_Click;
-            btnViewDetails.Click += btnViewDetails_Click;
-            btnAssignment_add.Click += btnAssignment_add_Click;
-            btnCompletedAssignment.Click += btnCompletedAssignment_Click;
-            btnAssignments.Click += btnAssignments_Click;
-            btnEditAssignment.Click += btnEditAssignment_Click;
-            btnAssignment_edit.Click += btnAssignment_edit_Click;
-            txtSearch.TextChanged += txtSearch_TextChanged;
-            btnSortAssignments.Click += btnSortAssignments_Click;
-            btnViewAssignmentDetails.Click += btnViewAssignmentDetails_Click;
-            btnDeleteAssignment.Click += btnDeleteAssignment_Click;
-            btnSaveAndExit.Click += btnSaveAndExit_Click;
-            lstCurrentAssignments.DrawItem += lstCurrentAssignments_DrawItem;
-            FormClosing += frmStudyAndAssignement_FormClosing;
         }
 
         private void LoadData()
@@ -625,10 +413,9 @@ namespace Kovsie_Study_and_Assignment_Tracker
             RefreshStudyPlan();
         }
 
-        /// <summary>
-        /// Builds a per-module breakdown (total and overdue counts) by iterating over the collection.
-        /// Demonstrates meaningful string building for the basic summary/report requirement.
-        /// </summary>
+        // Builds a per-module breakdown (total and overdue counts) by iterating over the collection.
+        // Demonstrates meaningful string building for the basic summary/report requirement.
+
         private string BuildModuleSummaryText()
         {
             StringBuilder builder = new StringBuilder();
@@ -652,65 +439,14 @@ namespace Kovsie_Study_and_Assignment_Tracker
             return builder.ToString();
         }
 
-        /// <summary>
-        /// Builds a plain-text weekly plan: overdue items first, then anything due in the next 7 days,
-        /// grouped by day. This is the "unique" study-schedule feature layered on top of the required brief.
-        /// </summary>
-        private string BuildStudyPlanText()
-        {
-            StringBuilder builder = new StringBuilder();
-            DateTime weekEnd = DateTime.Today.AddDays(7);
-
-            List<Assignment> overdue = assignments.Where(a => a.IsOverdue).OrderBy(a => a.DueDate).ToList();
-            List<Assignment> upcoming = assignments
-                .Where(a => !a.IsCompleted && a.DueDate.Date >= DateTime.Today && a.DueDate.Date <= weekEnd)
-                .OrderBy(a => a.DueDate)
-                .ToList();
-
-            if (overdue.Count > 0)
-            {
-                builder.AppendLine("OVERDUE - deal with these first:");
-                foreach (Assignment a in overdue)
-                {
-                    builder.AppendFormat("  {0} | {1} (was due {2:dd MMM yyyy})", a.Module, a.Title, a.DueDate);
-                    builder.AppendLine();
-                }
-                builder.AppendLine();
-            }
-
-            if (upcoming.Count == 0)
-            {
-                builder.AppendLine("Nothing due in the next 7 days. Nice work staying ahead!");
-                return builder.ToString();
-            }
-
-            builder.AppendLine("Due in the next 7 days:");
-            DateTime? lastDay = null;
-            foreach (Assignment a in upcoming)
-            {
-                if (lastDay == null || lastDay.Value.Date != a.DueDate.Date)
-                {
-                    builder.AppendLine();
-                    builder.AppendFormat("{0:dddd, dd MMMM}", a.DueDate);
-                    builder.AppendLine();
-                    lastDay = a.DueDate;
-                }
-                builder.AppendFormat("  - {0} ({1})", a.Title, a.Module);
-                builder.AppendLine();
-            }
-
-            return builder.ToString();
-        }
-
         private bool IsValidModuleCode(string code)
         {
             return Regex.IsMatch(code, "^[A-Z]{4}[0-9]{4}$");
         }
 
-        /// <summary>
-        /// Validates the module/title fields shared by both the Add and Edit forms.
-        /// Returns false and an error message instead of letting bad input crash the app.
-        /// </summary>
+        // Validates the module/title fields shared by both the Add and Edit forms.
+        // Returns false and an error message instead of letting bad input crash the app
+
         private bool TryValidateAssignmentInput(object selectedModule, string title, out string errorMessage)
         {
             if (selectedModule == null)
@@ -1065,13 +801,14 @@ namespace Kovsie_Study_and_Assignment_Tracker
         private void btnGuide_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
-                "Add / Edit Assignment: pick a module, type a title and due date, then Add Assignment.\n" +
-                "Search by module or title, or use Sort to cycle between due date, module and title.\n" +
-                "View Overdue Assignments toggles the list to overdue items only; the list itself\n" +
-                "colours overdue items red and completed items green so they're easy to spot.\n" +
-                "Select a row to mark it complete, view its full details, edit it, or delete it.\n" +
-                "The Study Schedule tab shows what's overdue and what's due in the next 7 days.\n" +
-                "Save and exit (or simply closing the app) writes your data to disk as JSON.",
+                "Add / Edit Assignment:\tpick a module, type a title and due date, then Add Assignment.\n\n" +
+                "Search by module or title, or use Sort to cycle between due date, module and title.\n\n" +
+                "View Overdue Assignments toggles the list to overdue items only; the list itself\n\n" +
+                "colours overdue items red and completed items green so they're easy to spot.\n\n" +
+                "Select a row to mark it complete, view its full details, edit it, or delete it.\n\n" +
+                "The Study Plan tab shows a live countdown to what's next and a priority queue\n\n" +
+                "of everything outstanding, oldest due date first.\n\n" +
+                "Save and exit (or simply closing the app) writes your data to disk as JSON.\n",
                 "Assignment Tracker Guide", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
