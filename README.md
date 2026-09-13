@@ -12,8 +12,10 @@
 ### Contribution highlights
 
 - **Moeletsi Phakedi** — created the initial skeletal design.
+- **Oluga Mutavhatsindi** — contributed to the coding and implementation
+  alongside Noluthando.
 - **Noluthando Buda** — implemented the assignment filters and additional
-  application functionality.
+  application functionality alongside Oluga.
 
 ## Project description
 
