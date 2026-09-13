@@ -29,6 +29,18 @@ namespace Kovsie_Study_and_Assignment_Tracker
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.pnlHeroHeader = new System.Windows.Forms.Panel();
+            this.lblHeroTitle = new System.Windows.Forms.Label();
+            this.pnlCountdownHero = new System.Windows.Forms.Panel();
+            this.lblCountdownCaption = new System.Windows.Forms.Label();
+            this.lblCountdownTitle = new System.Windows.Forms.Label();
+            this.lblCountdownTime = new System.Windows.Forms.Label();
+            this.lblStudyPlanTitle = new System.Windows.Forms.Label();
+            this.lblPriorityQueueHeader = new System.Windows.Forms.Label();
+            this.btnRefreshStudyPlan = new System.Windows.Forms.Button();
+            this.lstStudyPlan = new System.Windows.Forms.ListBox();
+            this.countdownTimer = new System.Windows.Forms.Timer(this.components);
             this.tbcStudy_And_Assignment_Tracker = new System.Windows.Forms.TabControl();
             this.tbcAdd_Remove_Modules = new System.Windows.Forms.TabPage();
             this.grpViewModuleDetails = new System.Windows.Forms.GroupBox();
@@ -61,6 +73,8 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.label2 = new System.Windows.Forms.Label();
             this.dtpDueDate_add = new System.Windows.Forms.DateTimePicker();
             this.tbcStudySchedule = new System.Windows.Forms.TabPage();
+            this.pnlHeroHeader.SuspendLayout();
+            this.pnlCountdownHero.SuspendLayout();
             this.tbcStudy_And_Assignment_Tracker.SuspendLayout();
             this.tbcAdd_Remove_Modules.SuspendLayout();
             this.grpViewModuleDetails.SuspendLayout();
@@ -70,32 +84,162 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.groupBox1.SuspendLayout();
             this.grpEditAssignement.SuspendLayout();
             this.grpAddAssignment.SuspendLayout();
+            this.tbcStudySchedule.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pnlHeroHeader
+            // 
+            this.pnlHeroHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlHeroHeader.Controls.Add(this.lblHeroTitle);
+            this.pnlHeroHeader.Location = new System.Drawing.Point(8, 8);
+            this.pnlHeroHeader.Name = "pnlHeroHeader";
+            this.pnlHeroHeader.Size = new System.Drawing.Size(1454, 60);
+            this.pnlHeroHeader.TabIndex = 100;
+            this.pnlHeroHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHeroHeader_Paint);
+            // 
+            // lblHeroTitle
+            // 
+            this.lblHeroTitle.AutoSize = true;
+            this.lblHeroTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblHeroTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.lblHeroTitle.ForeColor = System.Drawing.Color.White;
+            this.lblHeroTitle.Location = new System.Drawing.Point(20, 14);
+            this.lblHeroTitle.Name = "lblHeroTitle";
+            this.lblHeroTitle.Size = new System.Drawing.Size(448, 37);
+            this.lblHeroTitle.TabIndex = 0;
+            this.lblHeroTitle.Text = "Kovsie Study & Assignment Tracker";
+            // 
+            // pnlCountdownHero
+            // 
+            this.pnlCountdownHero.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlCountdownHero.Controls.Add(this.lblCountdownCaption);
+            this.pnlCountdownHero.Controls.Add(this.lblCountdownTitle);
+            this.pnlCountdownHero.Controls.Add(this.lblCountdownTime);
+            this.pnlCountdownHero.Location = new System.Drawing.Point(17, 55);
+            this.pnlCountdownHero.Name = "pnlCountdownHero";
+            this.pnlCountdownHero.Size = new System.Drawing.Size(950, 130);
+            this.pnlCountdownHero.TabIndex = 0;
+            this.pnlCountdownHero.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCountdownHero_Paint);
+            // 
+            // lblCountdownCaption
+            // 
+            this.lblCountdownCaption.AutoSize = true;
+            this.lblCountdownCaption.BackColor = System.Drawing.Color.Transparent;
+            this.lblCountdownCaption.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblCountdownCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.lblCountdownCaption.Location = new System.Drawing.Point(24, 14);
+            this.lblCountdownCaption.Name = "lblCountdownCaption";
+            this.lblCountdownCaption.Size = new System.Drawing.Size(80, 23);
+            this.lblCountdownCaption.TabIndex = 0;
+            this.lblCountdownCaption.Text = "NEXT UP";
+            // 
+            // lblCountdownTitle
+            // 
+            this.lblCountdownTitle.AutoSize = true;
+            this.lblCountdownTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblCountdownTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.lblCountdownTitle.ForeColor = System.Drawing.Color.White;
+            this.lblCountdownTitle.Location = new System.Drawing.Point(24, 40);
+            this.lblCountdownTitle.MaximumSize = new System.Drawing.Size(540, 0);
+            this.lblCountdownTitle.Name = "lblCountdownTitle";
+            this.lblCountdownTitle.Size = new System.Drawing.Size(114, 30);
+            this.lblCountdownTitle.TabIndex = 1;
+            this.lblCountdownTitle.Text = "Loading...";
+            // 
+            // lblCountdownTime
+            // 
+            this.lblCountdownTime.AutoSize = true;
+            this.lblCountdownTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblCountdownTime.Font = new System.Drawing.Font("Segoe UI", 26F, System.Drawing.FontStyle.Bold);
+            this.lblCountdownTime.ForeColor = System.Drawing.Color.White;
+            this.lblCountdownTime.Location = new System.Drawing.Point(600, 36);
+            this.lblCountdownTime.Name = "lblCountdownTime";
+            this.lblCountdownTime.Size = new System.Drawing.Size(0, 60);
+            this.lblCountdownTime.TabIndex = 2;
+            // 
+            // lblStudyPlanTitle
+            // 
+            this.lblStudyPlanTitle.AutoSize = true;
+            this.lblStudyPlanTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblStudyPlanTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(112)))), ((int)(((byte)(190)))));
+            this.lblStudyPlanTitle.Location = new System.Drawing.Point(17, 17);
+            this.lblStudyPlanTitle.Name = "lblStudyPlanTitle";
+            this.lblStudyPlanTitle.Size = new System.Drawing.Size(135, 32);
+            this.lblStudyPlanTitle.TabIndex = 1;
+            this.lblStudyPlanTitle.Text = "Study Plan";
+            // 
+            // lblPriorityQueueHeader
+            // 
+            this.lblPriorityQueueHeader.AutoSize = true;
+            this.lblPriorityQueueHeader.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblPriorityQueueHeader.Location = new System.Drawing.Point(17, 200);
+            this.lblPriorityQueueHeader.Name = "lblPriorityQueueHeader";
+            this.lblPriorityQueueHeader.Size = new System.Drawing.Size(331, 28);
+            this.lblPriorityQueueHeader.TabIndex = 2;
+            this.lblPriorityQueueHeader.Text = "Priority Queue - most urgent first";
+            // 
+            // btnRefreshStudyPlan
+            // 
+            this.btnRefreshStudyPlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefreshStudyPlan.Location = new System.Drawing.Point(867, 195);
+            this.btnRefreshStudyPlan.Name = "btnRefreshStudyPlan";
+            this.btnRefreshStudyPlan.Size = new System.Drawing.Size(100, 30);
+            this.btnRefreshStudyPlan.TabIndex = 3;
+            this.btnRefreshStudyPlan.Text = "Refresh";
+            this.btnRefreshStudyPlan.UseVisualStyleBackColor = true;
+            this.btnRefreshStudyPlan.Click += new System.EventHandler(this.btnRefreshStudyPlan_Click);
+            // 
+            // lstStudyPlan
+            // 
+            this.lstStudyPlan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstStudyPlan.BackColor = System.Drawing.Color.White;
+            this.lstStudyPlan.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.lstStudyPlan.ItemHeight = 26;
+            this.lstStudyPlan.Location = new System.Drawing.Point(17, 235);
+            this.lstStudyPlan.Name = "lstStudyPlan";
+            this.lstStudyPlan.Size = new System.Drawing.Size(950, 342);
+            this.lstStudyPlan.TabIndex = 4;
+            this.lstStudyPlan.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lstStudyPlan_DrawItem);
+            // 
+            // countdownTimer
+            // 
+            this.countdownTimer.Interval = 1000;
+            this.countdownTimer.Tick += new System.EventHandler(this.countdownTimer_Tick);
             // 
             // tbcStudy_And_Assignment_Tracker
             // 
+            this.tbcStudy_And_Assignment_Tracker.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbcStudy_And_Assignment_Tracker.Controls.Add(this.tbcAdd_Remove_Modules);
             this.tbcStudy_And_Assignment_Tracker.Controls.Add(this.tbcAssignements);
             this.tbcStudy_And_Assignment_Tracker.Controls.Add(this.tbcStudySchedule);
-            this.tbcStudy_And_Assignment_Tracker.Location = new System.Drawing.Point(8, 8);
-            this.tbcStudy_And_Assignment_Tracker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbcStudy_And_Assignment_Tracker.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tbcStudy_And_Assignment_Tracker.ItemSize = new System.Drawing.Size(170, 34);
+            this.tbcStudy_And_Assignment_Tracker.Location = new System.Drawing.Point(8, 76);
+            this.tbcStudy_And_Assignment_Tracker.Margin = new System.Windows.Forms.Padding(2);
             this.tbcStudy_And_Assignment_Tracker.Name = "tbcStudy_And_Assignment_Tracker";
             this.tbcStudy_And_Assignment_Tracker.SelectedIndex = 0;
-            this.tbcStudy_And_Assignment_Tracker.Size = new System.Drawing.Size(1004, 720);
+            this.tbcStudy_And_Assignment_Tracker.Size = new System.Drawing.Size(1454, 1051);
             this.tbcStudy_And_Assignment_Tracker.TabIndex = 2;
+            this.tbcStudy_And_Assignment_Tracker.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tbcStudy_And_Assignment_Tracker_DrawItem);
             // 
             // tbcAdd_Remove_Modules
             // 
             this.tbcAdd_Remove_Modules.Controls.Add(this.grpViewModuleDetails);
             this.tbcAdd_Remove_Modules.Controls.Add(this.grpRemoveModule);
             this.tbcAdd_Remove_Modules.Controls.Add(this.grpAddModules);
-            this.tbcAdd_Remove_Modules.Location = new System.Drawing.Point(4, 25);
-            this.tbcAdd_Remove_Modules.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbcAdd_Remove_Modules.Location = new System.Drawing.Point(4, 38);
+            this.tbcAdd_Remove_Modules.Margin = new System.Windows.Forms.Padding(2);
             this.tbcAdd_Remove_Modules.Name = "tbcAdd_Remove_Modules";
-            this.tbcAdd_Remove_Modules.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbcAdd_Remove_Modules.Size = new System.Drawing.Size(996, 691);
+            this.tbcAdd_Remove_Modules.Padding = new System.Windows.Forms.Padding(2);
+            this.tbcAdd_Remove_Modules.Size = new System.Drawing.Size(1446, 1009);
             this.tbcAdd_Remove_Modules.TabIndex = 0;
-            this.tbcAdd_Remove_Modules.Text = "Add Modules";
+            this.tbcAdd_Remove_Modules.Text = "Modules";
             this.tbcAdd_Remove_Modules.UseVisualStyleBackColor = true;
             // 
             // grpViewModuleDetails
@@ -103,9 +247,9 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.grpViewModuleDetails.Controls.Add(this.btnViewDetails);
             this.grpViewModuleDetails.Controls.Add(this.lstModules_ViewDetails);
             this.grpViewModuleDetails.Location = new System.Drawing.Point(18, 343);
-            this.grpViewModuleDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpViewModuleDetails.Margin = new System.Windows.Forms.Padding(2);
             this.grpViewModuleDetails.Name = "grpViewModuleDetails";
-            this.grpViewModuleDetails.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpViewModuleDetails.Padding = new System.Windows.Forms.Padding(2);
             this.grpViewModuleDetails.Size = new System.Drawing.Size(527, 166);
             this.grpViewModuleDetails.TabIndex = 4;
             this.grpViewModuleDetails.TabStop = false;
@@ -114,7 +258,7 @@ namespace Kovsie_Study_and_Assignment_Tracker
             // btnViewDetails
             // 
             this.btnViewDetails.Location = new System.Drawing.Point(265, 25);
-            this.btnViewDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewDetails.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewDetails.Name = "btnViewDetails";
             this.btnViewDetails.Size = new System.Drawing.Size(240, 51);
             this.btnViewDetails.TabIndex = 1;
@@ -126,7 +270,7 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.lstModules_ViewDetails.FormattingEnabled = true;
             this.lstModules_ViewDetails.ItemHeight = 16;
             this.lstModules_ViewDetails.Location = new System.Drawing.Point(21, 25);
-            this.lstModules_ViewDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstModules_ViewDetails.Margin = new System.Windows.Forms.Padding(2);
             this.lstModules_ViewDetails.Name = "lstModules_ViewDetails";
             this.lstModules_ViewDetails.Size = new System.Drawing.Size(211, 116);
             this.lstModules_ViewDetails.TabIndex = 0;
@@ -136,9 +280,9 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.grpRemoveModule.Controls.Add(this.btnRemoveModule);
             this.grpRemoveModule.Controls.Add(this.lstModules_remove);
             this.grpRemoveModule.Location = new System.Drawing.Point(18, 144);
-            this.grpRemoveModule.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpRemoveModule.Margin = new System.Windows.Forms.Padding(2);
             this.grpRemoveModule.Name = "grpRemoveModule";
-            this.grpRemoveModule.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpRemoveModule.Padding = new System.Windows.Forms.Padding(2);
             this.grpRemoveModule.Size = new System.Drawing.Size(527, 166);
             this.grpRemoveModule.TabIndex = 3;
             this.grpRemoveModule.TabStop = false;
@@ -147,7 +291,7 @@ namespace Kovsie_Study_and_Assignment_Tracker
             // btnRemoveModule
             // 
             this.btnRemoveModule.Location = new System.Drawing.Point(265, 26);
-            this.btnRemoveModule.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRemoveModule.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoveModule.Name = "btnRemoveModule";
             this.btnRemoveModule.Size = new System.Drawing.Size(240, 43);
             this.btnRemoveModule.TabIndex = 1;
@@ -159,7 +303,7 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.lstModules_remove.FormattingEnabled = true;
             this.lstModules_remove.ItemHeight = 16;
             this.lstModules_remove.Location = new System.Drawing.Point(21, 26);
-            this.lstModules_remove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstModules_remove.Margin = new System.Windows.Forms.Padding(2);
             this.lstModules_remove.Name = "lstModules_remove";
             this.lstModules_remove.Size = new System.Drawing.Size(223, 116);
             this.lstModules_remove.TabIndex = 0;
@@ -170,9 +314,9 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.grpAddModules.Controls.Add(this.btnAddModule);
             this.grpAddModules.Controls.Add(this.txtModules);
             this.grpAddModules.Location = new System.Drawing.Point(18, 17);
-            this.grpAddModules.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpAddModules.Margin = new System.Windows.Forms.Padding(2);
             this.grpAddModules.Name = "grpAddModules";
-            this.grpAddModules.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpAddModules.Padding = new System.Windows.Forms.Padding(2);
             this.grpAddModules.Size = new System.Drawing.Size(527, 102);
             this.grpAddModules.TabIndex = 2;
             this.grpAddModules.TabStop = false;
@@ -191,7 +335,7 @@ namespace Kovsie_Study_and_Assignment_Tracker
             // btnAddModule
             // 
             this.btnAddModule.Location = new System.Drawing.Point(265, 55);
-            this.btnAddModule.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddModule.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddModule.Name = "btnAddModule";
             this.btnAddModule.Size = new System.Drawing.Size(240, 31);
             this.btnAddModule.TabIndex = 1;
@@ -201,7 +345,7 @@ namespace Kovsie_Study_and_Assignment_Tracker
             // txtModules
             // 
             this.txtModules.Location = new System.Drawing.Point(21, 55);
-            this.txtModules.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtModules.Margin = new System.Windows.Forms.Padding(2);
             this.txtModules.Name = "txtModules";
             this.txtModules.Size = new System.Drawing.Size(223, 22);
             this.txtModules.TabIndex = 0;
@@ -212,19 +356,19 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.tbcAssignements.Controls.Add(this.groupBox1);
             this.tbcAssignements.Controls.Add(this.grpEditAssignement);
             this.tbcAssignements.Controls.Add(this.grpAddAssignment);
-            this.tbcAssignements.Location = new System.Drawing.Point(4, 25);
-            this.tbcAssignements.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbcAssignements.Location = new System.Drawing.Point(4, 38);
+            this.tbcAssignements.Margin = new System.Windows.Forms.Padding(2);
             this.tbcAssignements.Name = "tbcAssignements";
-            this.tbcAssignements.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbcAssignements.Size = new System.Drawing.Size(996, 691);
+            this.tbcAssignements.Padding = new System.Windows.Forms.Padding(2);
+            this.tbcAssignements.Size = new System.Drawing.Size(1446, 1009);
             this.tbcAssignements.TabIndex = 1;
             this.tbcAssignements.Text = "Assignments";
             this.tbcAssignements.UseVisualStyleBackColor = true;
             // 
             // btnGuide
             // 
-            this.btnGuide.Location = new System.Drawing.Point(717, 22);
-            this.btnGuide.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGuide.Location = new System.Drawing.Point(861, 0);
+            this.btnGuide.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuide.Name = "btnGuide";
             this.btnGuide.Size = new System.Drawing.Size(208, 637);
             this.btnGuide.TabIndex = 4;
@@ -239,9 +383,9 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.groupBox1.Controls.Add(this.btnCompletedAssignment);
             this.groupBox1.Controls.Add(this.lstCurrentAssignments);
             this.groupBox1.Location = new System.Drawing.Point(11, 173);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(675, 337);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
@@ -250,17 +394,17 @@ namespace Kovsie_Study_and_Assignment_Tracker
             // btnEditAssignment
             // 
             this.btnEditAssignment.Location = new System.Drawing.Point(19, 189);
-            this.btnEditAssignment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditAssignment.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditAssignment.Name = "btnEditAssignment";
             this.btnEditAssignment.Size = new System.Drawing.Size(177, 45);
             this.btnEditAssignment.TabIndex = 3;
-            this.btnEditAssignment.Text = "Edit Assignment";
+            this.btnEditAssignment.Text = "Load for Editing";
             this.btnEditAssignment.UseVisualStyleBackColor = true;
             // 
             // btnAssignments
             // 
             this.btnAssignments.Location = new System.Drawing.Point(19, 103);
-            this.btnAssignments.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAssignments.Margin = new System.Windows.Forms.Padding(2);
             this.btnAssignments.Name = "btnAssignments";
             this.btnAssignments.Size = new System.Drawing.Size(177, 42);
             this.btnAssignments.TabIndex = 2;
@@ -270,7 +414,7 @@ namespace Kovsie_Study_and_Assignment_Tracker
             // btnCompletedAssignment
             // 
             this.btnCompletedAssignment.Location = new System.Drawing.Point(19, 27);
-            this.btnCompletedAssignment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCompletedAssignment.Margin = new System.Windows.Forms.Padding(2);
             this.btnCompletedAssignment.Name = "btnCompletedAssignment";
             this.btnCompletedAssignment.Size = new System.Drawing.Size(177, 42);
             this.btnCompletedAssignment.TabIndex = 1;
@@ -282,7 +426,7 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.lstCurrentAssignments.FormattingEnabled = true;
             this.lstCurrentAssignments.ItemHeight = 16;
             this.lstCurrentAssignments.Location = new System.Drawing.Point(264, 19);
-            this.lstCurrentAssignments.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstCurrentAssignments.Margin = new System.Windows.Forms.Padding(2);
             this.lstCurrentAssignments.Name = "lstCurrentAssignments";
             this.lstCurrentAssignments.Size = new System.Drawing.Size(399, 308);
             this.lstCurrentAssignments.TabIndex = 0;
@@ -295,18 +439,18 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.grpEditAssignement.Controls.Add(this.dateTimePicker1);
             this.grpEditAssignement.Controls.Add(this.label4);
             this.grpEditAssignement.Location = new System.Drawing.Point(11, 515);
-            this.grpEditAssignement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpEditAssignement.Margin = new System.Windows.Forms.Padding(2);
             this.grpEditAssignement.Name = "grpEditAssignement";
-            this.grpEditAssignement.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpEditAssignement.Padding = new System.Windows.Forms.Padding(2);
             this.grpEditAssignement.Size = new System.Drawing.Size(675, 150);
             this.grpEditAssignement.TabIndex = 1;
             this.grpEditAssignement.TabStop = false;
-            this.grpEditAssignement.Text = "Edit Assignment";
+            this.grpEditAssignement.Text = "Edit Selected Assignment";
             // 
             // txtAssignment_edit
             // 
             this.txtAssignment_edit.Location = new System.Drawing.Point(373, 63);
-            this.txtAssignment_edit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAssignment_edit.Margin = new System.Windows.Forms.Padding(2);
             this.txtAssignment_edit.Name = "txtAssignment_edit";
             this.txtAssignment_edit.Size = new System.Drawing.Size(295, 22);
             this.txtAssignment_edit.TabIndex = 7;
@@ -324,17 +468,17 @@ namespace Kovsie_Study_and_Assignment_Tracker
             // btnAssignment_edit
             // 
             this.btnAssignment_edit.Location = new System.Drawing.Point(19, 97);
-            this.btnAssignment_edit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAssignment_edit.Margin = new System.Windows.Forms.Padding(2);
             this.btnAssignment_edit.Name = "btnAssignment_edit";
             this.btnAssignment_edit.Size = new System.Drawing.Size(256, 30);
             this.btnAssignment_edit.TabIndex = 5;
-            this.btnAssignment_edit.Text = "Edit Assignment";
+            this.btnAssignment_edit.Text = "Save Changes";
             this.btnAssignment_edit.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(19, 61);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(257, 22);
             this.dateTimePicker1.TabIndex = 3;
@@ -357,10 +501,10 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.grpAddAssignment.Controls.Add(this.label2);
             this.grpAddAssignment.Controls.Add(this.dtpDueDate_add);
             this.grpAddAssignment.Location = new System.Drawing.Point(11, 12);
-            this.grpAddAssignment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpAddAssignment.Margin = new System.Windows.Forms.Padding(2);
             this.grpAddAssignment.Name = "grpAddAssignment";
-            this.grpAddAssignment.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.grpAddAssignment.Size = new System.Drawing.Size(675, 152);
+            this.grpAddAssignment.Padding = new System.Windows.Forms.Padding(2);
+            this.grpAddAssignment.Size = new System.Drawing.Size(846, 152);
             this.grpAddAssignment.TabIndex = 0;
             this.grpAddAssignment.TabStop = false;
             this.grpAddAssignment.Text = "Add Assignment";
@@ -368,7 +512,7 @@ namespace Kovsie_Study_and_Assignment_Tracker
             // btnAssignment_add
             // 
             this.btnAssignment_add.Location = new System.Drawing.Point(19, 102);
-            this.btnAssignment_add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAssignment_add.Margin = new System.Windows.Forms.Padding(2);
             this.btnAssignment_add.Name = "btnAssignment_add";
             this.btnAssignment_add.Size = new System.Drawing.Size(256, 30);
             this.btnAssignment_add.TabIndex = 4;
@@ -388,7 +532,7 @@ namespace Kovsie_Study_and_Assignment_Tracker
             // txtAssignmentName_Add
             // 
             this.txtAssignmentName_Add.Location = new System.Drawing.Point(373, 55);
-            this.txtAssignmentName_Add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAssignmentName_Add.Margin = new System.Windows.Forms.Padding(2);
             this.txtAssignmentName_Add.Name = "txtAssignmentName_Add";
             this.txtAssignmentName_Add.Size = new System.Drawing.Size(295, 22);
             this.txtAssignmentName_Add.TabIndex = 2;
@@ -407,31 +551,45 @@ namespace Kovsie_Study_and_Assignment_Tracker
             // dtpDueDate_add
             // 
             this.dtpDueDate_add.Location = new System.Drawing.Point(19, 55);
-            this.dtpDueDate_add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpDueDate_add.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDueDate_add.Name = "dtpDueDate_add";
             this.dtpDueDate_add.Size = new System.Drawing.Size(257, 22);
             this.dtpDueDate_add.TabIndex = 0;
             // 
             // tbcStudySchedule
             // 
-            this.tbcStudySchedule.Location = new System.Drawing.Point(4, 25);
-            this.tbcStudySchedule.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbcStudySchedule.AutoScroll = true;
+            this.tbcStudySchedule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.tbcStudySchedule.Controls.Add(this.lblStudyPlanTitle);
+            this.tbcStudySchedule.Controls.Add(this.pnlCountdownHero);
+            this.tbcStudySchedule.Controls.Add(this.lblPriorityQueueHeader);
+            this.tbcStudySchedule.Controls.Add(this.btnRefreshStudyPlan);
+            this.tbcStudySchedule.Controls.Add(this.lstStudyPlan);
+            this.tbcStudySchedule.Location = new System.Drawing.Point(4, 38);
+            this.tbcStudySchedule.Margin = new System.Windows.Forms.Padding(2);
             this.tbcStudySchedule.Name = "tbcStudySchedule";
-            this.tbcStudySchedule.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbcStudySchedule.Size = new System.Drawing.Size(996, 691);
+            this.tbcStudySchedule.Padding = new System.Windows.Forms.Padding(2);
+            this.tbcStudySchedule.Size = new System.Drawing.Size(1446, 1009);
             this.tbcStudySchedule.TabIndex = 2;
-            this.tbcStudySchedule.Text = "Study schedule";
+            this.tbcStudySchedule.Text = "Study Plan";
             this.tbcStudySchedule.UseVisualStyleBackColor = true;
             // 
             // frmStudyAndAssignement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 675);
+            this.ClientSize = new System.Drawing.Size(1470, 1055);
             this.Controls.Add(this.tbcStudy_And_Assignment_Tracker);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.pnlHeroHeader);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(900, 650);
             this.Name = "frmStudyAndAssignement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Study And Assignment Tracker";
+            this.pnlHeroHeader.ResumeLayout(false);
+            this.pnlHeroHeader.PerformLayout();
+            this.pnlCountdownHero.ResumeLayout(false);
+            this.pnlCountdownHero.PerformLayout();
             this.tbcStudy_And_Assignment_Tracker.ResumeLayout(false);
             this.tbcAdd_Remove_Modules.ResumeLayout(false);
             this.grpViewModuleDetails.ResumeLayout(false);
@@ -444,12 +602,25 @@ namespace Kovsie_Study_and_Assignment_Tracker
             this.grpEditAssignement.PerformLayout();
             this.grpAddAssignment.ResumeLayout(false);
             this.grpAddAssignment.PerformLayout();
+            this.tbcStudySchedule.ResumeLayout(false);
+            this.tbcStudySchedule.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Panel pnlHeroHeader;
+        private System.Windows.Forms.Label lblHeroTitle;
+        private System.Windows.Forms.Panel pnlCountdownHero;
+        private System.Windows.Forms.Label lblCountdownCaption;
+        private System.Windows.Forms.Label lblCountdownTitle;
+        private System.Windows.Forms.Label lblCountdownTime;
+        private System.Windows.Forms.Label lblStudyPlanTitle;
+        private System.Windows.Forms.Label lblPriorityQueueHeader;
+        private System.Windows.Forms.Button btnRefreshStudyPlan;
+        private System.Windows.Forms.ListBox lstStudyPlan;
+        private System.Windows.Forms.Timer countdownTimer;
         private System.Windows.Forms.TabControl tbcStudy_And_Assignment_Tracker;
         private System.Windows.Forms.TabPage tbcAdd_Remove_Modules;
         private System.Windows.Forms.GroupBox grpViewModuleDetails;
